@@ -1,0 +1,218 @@
+<!-- Created by kelvin stanslaus kasubili | Enhanced Version -->
+<!DOCTYPE html>
+<html lang="sw">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Mr. Calvin - Exam System</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com">
+    <style>
+       * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        body {font-family: aerial,sans-serif;
+        background-color: #f5f5f5;
+            
+           
+        }
+        button{
+            cursor: pointer;
+            color: white;
+            background-color: green;
+            border: none;
+            border-radius: 2px;
+            border: 2px solid green;    
+        }
+       
+        input, button{
+            padding: 10px;
+            margin: 10px;
+            border: 1px solid grey;
+            width: calc(25% - 15px); min-width: 100px;
+        }
+           /* TABLE SLIDER / RESPONSIVE CONTAINER */
+        .table-container{
+            width: 100%;
+            overflow-x: auto; /* Hii ndio inatengeneza slider */
+            background: white;
+            border-radius: 8px;
+            box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+            margin: 21px;
+        }
+
+        table { width: 100%; border-collapse: collapse; min-width: 800px; }
+        th, td { border: 1px solid #ddd; padding: 12px; text-align: center; }
+        tr:nth-child(even) { background-color: #f2f2f2; }
+
+        @media print{
+            .card, input{display: none;}
+            button{display: none;}
+            h3{display: none;}
+            .table-container { overflow: visible; }
+            h4{ display: block;}
+            table{display: block;}
+            .card{display: none; overflow: hidden;}
+        }
+        th,td{
+            border: 1px solid black;
+            padding: 10px;
+            
+        }
+        td{
+            text-align: center;
+        }
+         tr:nth-child(even) { background-color: #f2f2f2; }
+
+        .card{
+         box-shadow:0 6px 18px rgba(10,10,10,0.06);
+         margin: 12px;
+         display: block;
+         background-color: #FFFFFF;
+         border-radius: 8px;
+        }
+        .title2{  
+            box-shadow: 2 2px 4px rgba(0, 0, 0, 0.1);
+         margin: 12px;
+         
+
+        
+            
+        }
+        header{
+            background-color: #ddd;
+        }
+       button:hover{
+        background-color: red;
+        color: white;
+        border: none;
+        opacity: calc(0.1);
+       }
+    </style>
+</head>
+<body>
+     <div class="card" style="padding: 10px;">
+  <h3>The online data-entry input Management system</h3>
+    <div class="card" style="padding: 8px; background-color: white;font-size: small;">
+        <p style="color: #ff0000;">⨀</p>
+        <ul><p style="color: gray;">Enter correct inputs names and marks.!! <b style="color: #ff0000;">Also Preview Your page before print.!</b></p></ul>
+        <p style="color: gray;">The empty input should be considered as zero.!!</p>
+        <br>
+    </div>
+     </div>
+    <div class="card" id="inputForm">
+        <form id="marksForm">
+            <input type="text" id="name" placeholder="Jina la Mwanafunzi" required>
+            <input type="number" id="Math" placeholder="Math" min="0" max="100" required>
+            <input type="number" id="Chem" placeholder="Chem" min="0" max="100" required>
+            <input type="number" id="Biol" placeholder="Biol" min="0" max="100" required>
+            <input type="number" id="Geo" placeholder="Geo" min="0" max="100" required>
+            <input type="number" id="Kisw" placeholder="Kisw" min="0" max="100" required>
+            <input type="number" id="Hist" placeholder="Hist" min="0" max="100" required>
+            <input type="number" id="Eng" placeholder="Eng" min="0" max="100" required>
+            <button type="button" onclick="addResult()">Add Marks</button>
+        </form>
+    </div>
+
+    <div class="card">
+        <input type="search" id="searchInput" placeholder="Tafuta mwanafunzi..." onkeyup="searchTable()" style="width: 50%;">
+        <button class="btn-print" onclick="printPage()">Print/Preview</button>
+    </div>
+     <br><br><hr><br><br>
+    <div class="table-container">
+        <table id="resultsTable">
+            <thead>
+                <tr>
+                    <th>Name</th>
+                    <th>Math</th>
+                    <th>Chem</th>
+                    <th>Bio</th>
+                    <th>Geo</th>
+                    <th>Kisw</th>
+                    <th>Hist</th>
+                    <th>Eng</th>
+                    <th>Total</th>
+                    <th>Average</th>
+                    <th>Grade</th>
+                </tr>
+            </thead>
+            <tbody id="tableBody">
+                <!-- Data itaingia hapa -->
+            </tbody>
+        </table>
+    </div>
+
+    <script>
+        // Pakia data kutoka LocalStorage ukurasa ukifunguka
+        window.onload = loadData;
+
+        function getGrade(avg) {
+            if(avg >= 75) return "A";
+            else if (avg >= 65) return "B";
+            else if (avg >= 45) return "C";
+            else if (avg >= 30) return "D";
+            else return "F";
+        }
+
+        function addResult() {
+            let name = document.getElementById("name").value;
+            let subjects = ["Math", "Chem", "Biol", "Geo", "Kisw", "Hist", "Eng"];
+            let marks = subjects.map(id => Number(document.getElementById(id).value));
+            
+            if(!name) { alert("Tafadhali weka jina!"); return; }
+
+            let total = marks.reduce((a, b) => a + b, 0);
+            let avg = (total / subjects.length).toFixed(2);
+            let grade = getGrade(avg);
+
+            let studentData = { name, marks, total, avg, grade };
+
+            // Hifadhi kwenye LocalStorage
+            let students = JSON.parse(localStorage.getItem("students")) || [];
+            students.push(studentData);
+            localStorage.setItem("students", JSON.stringify(students));
+
+            renderTable();
+            document.getElementById("marksForm").reset();
+        }
+
+        function renderTable() {
+            let students = JSON.parse(localStorage.getItem("students")) || [];
+            let tableBody = document.getElementById("tableBody");
+            tableBody.innerHTML = "";
+
+            students.forEach(s => {
+                let row = `<tr>
+                    <td>${s.name}</td>
+                    ${s.marks.map(m => `<td>${m}</td>`).join('')}
+                    <td>${s.total}</td>
+                    <td>${s.avg}</td>
+                    <td><strong>${s.grade}</strong></td>
+                </tr>`;
+                tableBody.innerHTML += row;
+            });
+        }
+
+        function loadData() {
+            renderTable();
+        }
+
+        function searchTable() {
+            let input = document.getElementById("searchInput").value.toUpperCase();
+            let rows = document.getElementById("tableBody").getElementsByTagName("tr");
+            for (let i = 0; i < rows.length; i++) {
+                let nameCol = rows[i].getElementsByTagName("td")[0];
+                if (nameCol) {
+                    let textValue = nameCol.textContent || nameCol.innerText;
+                    rows[i].style.display = textValue.toUpperCase().indexOf(input) > -1 ? "" : "none";
+                }
+            }
+        }
+
+        function printPage() {
+            window.print();
+        }
+    </script>
+</body>
+</html>
