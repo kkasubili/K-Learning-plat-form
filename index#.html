@@ -1,0 +1,315 @@
+
+<html lang="sw">
+<head>
+<title>School mngement system</title>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+
+<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
+
+    <style>
+       *{
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        body{
+            text-align: justify;
+
+        }
+        nav{
+           
+            list-style: none;
+            position: fixed;
+            height: 80px;
+            background-color: skyblue;
+            width: 100%;
+            z-index: 1;
+            text-decoration: none;
+            display: inline-block;
+        }
+        li,ul{
+           display: inline-block;
+            font-size: 14px;
+            font-weight: bold;
+            float:right;
+             line-height: 70px;
+             margin: 0 5px;
+        }
+         li,ul,a{text-decoration: none;
+           
+         }
+        a{
+        text-decoration: none;
+         color: white;
+       
+        }
+        a:hover{
+          border-bottom: 4px solid darkcyan;
+        }
+        .logo{
+            font-size: 15px;
+            position: relative;
+            left: 5%;
+            font-weight: bold;
+             line-height: 70px;
+        }
+    .image{
+        width: 100%;
+        height: 300px;
+       
+    }
+
+        .section1{
+        padding-top: 70px;
+        }
+
+        .img-label{
+             font-weight: bold;
+             font-size: 23px;
+             text-align: center;
+             align-items: center;
+             padding: 20px;
+             margin-bottom: 50px;
+             color: white;
+             background-color:  darkblue;
+             padding: 8px;
+          
+            
+             
+        }
+        .container2{
+        background-image: url("clssroom.png");
+        color: white;
+        animation:change 30s infinite;
+        position: relative;
+        width: 100%;
+        text-align: center;
+        background-position: center;
+        border-radius: 10px;
+        overflow: hidden;
+        height: 400px;
+       
+        background-size: cover;
+       }
+        
+       @keyframes change{
+        0%{background-image:url("clssroom.png");opacity: 1;}
+         40%{background-image:url("shule2.jpg");opacity: 0.9;}
+          70%{background-image:url("computer-lab-computers.jpg");opacity: 0.9;color: white;}
+          90%{background-image:url("lab.jpg");opacity: 0.7;}
+         90%{background-image:url("clssroom.png");opacity: 0.5;}
+         
+       }
+    
+        .welcome{
+            width: 100%;
+            height: 250px;
+        }
+        .container{
+            padding-top: 70px;
+            margin: 10px;
+            border-radius: 5px;
+        }
+       
+    form{
+        padding-top: 60px;
+        
+    }
+    input{
+        padding: 10px;
+        border: 1px solid black;
+        border-radius: 3px;
+        width: 50%;
+       
+    }
+    card{background:#fff;
+        border-radius:12px;
+        padding:16px;
+        box-shadow:0 6px 18px rgba(10,10,10,0.06)
+    }
+    .top-card{
+        background-color: darkcyan;
+        height: 50px;
+    }
+    .form-card{
+        background-color: ghostwhite;
+        padding: 10px;
+        align-items: center;text-align: center;
+
+    }
+    .form-label{
+        padding-right: 10px;
+        width: 100px;
+        font-weight: bold;
+        text-align: right;
+        display: inline-block;
+    }
+   
+       
+
+   
+    button:hover{
+        background-color: blue;
+        color: white;
+        border: navy;
+         box-shadow: 0 6px darkblue;
+           width: 150px;;
+    }
+    .text{
+        width: 50%;
+        height: 50px;
+    }
+    #submit{
+        position: relative;
+        width: 20%;
+        left: 5%;
+    }
+    footer{
+        background-color: grey;
+        text-align: center;
+        color: ghostwhite;
+        width: 100%;
+        height: 70px;
+        font-size: small;
+
+    }
+     .footer-text{
+        top: 20%;
+        position: relative;
+     }
+     .social-icons{
+       
+        display: inline-block;
+       
+      
+       
+     }
+     .tuma{
+       display: none;
+       text-align: center;
+       font-weight: bold;
+       letter-spacing: 3px;
+     }
+    </style>
+
+</head>
+<body>
+<nav>
+<label class="logo">K-Learning platform</label>
+<ul>
+<li> <a href="youtube.com">Home</a></li>
+<li> <a href="#">Admin</a></li>
+<li> <a href="#">contacts</a></li>
+<li> <a href="youtube.com" style="color: darkcyan;">Login</a></li>
+</ul>
+</nav>
+
+<br>
+<div class="container2">
+<br><br><br><br><br><br>
+<label class="img-label">Building systems today owning the future tommorrow</label>
+
+</div>
+<div class="container">
+    <div class="row">
+        <div class="col-md-4">
+             <img class="welcome" src="shule2.jpg">
+        </div>
+<div class="col-md-8">
+<h2>Welcome to K-Learning</h2>
+<p>A stdent Mangement system is  digital platform Created by kasubili that helps schools and institutions manage students information
+    effrctively. it stores important data such as stdent details, marks attendnce and academic performance in one centalized system
+    .This redce manual papeer work,saves times, and improves accrracy in handling records.
+</p>
+<p>The system also supports a real time updates, allowing staff to access the most current informtion at ny any time. Also en
+  nable users or techers to search for students recordsand making information proccesses faster and more reliable.  
+</p>
+    </div>
+</div>
+            </div>
+        </div>
+    </div>
+</div>
+<center>
+<h3>Techers & Students resources</h3>
+<div style="border: 3px solid darkcyan; width: 400px;"></div>
+</center>
+<br>
+<div class="container">
+    <div class="row">
+        <div class="col-md-4">
+        <a href="" style="color: black;"><label><h3>T/Learning materials</h3></label></a> 
+         <img onclick="lineBorder()" class="welcome" src="lesson.jpg">
+        <p>Get Teching and Lerning materials as well as supplementary materiaals for students easy to understand. </p>
+        </div>
+        <div class="col-md-4">
+             <label><h3 id="line">O-level practicals & tutorials</h3></label>
+        <a href="" ><img class="welcome" src="B103.jpg"></a>
+        <p>Get practicals for chemistry nd biology subjects.</p>
+        </div>
+        <div class="col-md-4">
+        <label><h3>Get lesson plan new crriculum</h3></label>
+           <img class="welcome" src="lesson.png">
+        <p>Teachers Lesson plan and scheme of work are available for
+            ll subjects. for new curriculum.
+        </p>
+        </div>
+          <center>
+<h3 style="padding-top: 70px;">Add your Description about us</h3>
+<div style="border: 3px solid darkcyan; width: 400px;"></div>
+          <form method="post" action="submit.php" onsubmit="return false">
+            <div class="top-card"></div>
+            <div class="form-card">
+
+            <label for="name" class="form-label">Name:</label>
+             <input type="text" name="name" placeholder="Enter your name.." required><br><br>
+
+             <label for="name" class="form-label">Email</label>
+             <input type="email" name="email" placeholder="Enter your email..." required><br><br>
+
+            <label for="name" class="form-label">Message</label>
+           <textarea class="text" name="message"></textarea><br><br>
+
+            <button name="submit" onclick="submitBtn()" type="submit" class="btn btn-primary" id="submit" value="apply" >Submit</button>
+          </form>
+            </div>
+        </div>
+    <p style="color: green;" id="sent" class="tuma">Your message submited successfully</p>
+</center>
+    
+   
+
+    </div>
+</div>
+<footer>
+    <div class="social-icons">
+ <div class="social-icons" style="margin:10px 0">
+    <a href="https://facebook.com"><i class="fab fa-facebook" style="color: blue;"></i></a>
+    <a href="https://wa.me/255787457993"><i class="fab fa-whatsapp" style="color: greenyellow;"></i></a>
+    <a href="https://youtube.com"><i class="fab fa-youtube" style="color: red;"></i></a>
+    <a href="mailto:kelvinkasubiri@gmail.com"><i class="fas fa-envelope" style="color: rgb(0, 38, 255);"></i></a>
+    <a href="https://t.me/"><i class="fab fa-telegram" style="color: white;"></i></a>
+    <a href="https://tiktok.com"><i class="fab fa-tiktok" style="color: white;"></i></a>
+</div>
+ </div>
+<h4 class="footer-text">All @rights reserved.Designed by kasubili 2026.</h4>
+</footer>
+    </body>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js">
+      
+    </script>
+    <script>
+          function lineBorder(){
+            document.getElementById("line").style.border="4px solid darkcyn;height:";
+        }
+        function submitBtn(){
+                       document.getElementById("sent").style.display = "block";
+ 
+        }
+    </script>
+
+</html>
